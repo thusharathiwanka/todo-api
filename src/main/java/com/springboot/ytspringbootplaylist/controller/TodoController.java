@@ -71,4 +71,14 @@ public class TodoController {
         return new ResponseEntity<String>("Todo not found with id " + id,
                 HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping("todos/{id}")
+    public ResponseEntity<?> deleteTodo(@PathVariable("id") String id) {
+        try {
+            todoRepository.deleteById(id);
+            return new ResponseEntity<String>("Successfully deleted with id " + id, HttpStatus.OK);
+        } catch(Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
