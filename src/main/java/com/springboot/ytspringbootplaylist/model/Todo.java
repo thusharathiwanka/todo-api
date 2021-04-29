@@ -20,7 +20,7 @@ public class Todo {
     private String id;
     private String todo;
     private String description;
-    private boolean isCompleted;
+    private Boolean isCompleted;
     private Date createdAt;
     private Date updatedAt;
 }
